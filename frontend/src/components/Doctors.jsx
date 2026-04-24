@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import API_BASE_URL from '../config'
 import { motion } from 'framer-motion'
 import { Stethoscope, GraduationCap, Clock, CalendarClock } from 'lucide-react'
 
