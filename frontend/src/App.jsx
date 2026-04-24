@@ -10,7 +10,7 @@ import ChatBot from './components/ChatBot'
 
 function App() {
   const [hospitalInfo, setHospitalInfo] = useState(null)
-  const [selectedSpecialization, setSelectedSpecialization] = useState('All')
+  const [selectedSpecialization, setSelectedSpecialization] = useState('General Medicine')
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/api/hospital-info`)
