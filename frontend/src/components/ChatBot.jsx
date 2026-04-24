@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import API_BASE_URL from '../config'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, HeartPulse } from 'lucide-react'
 

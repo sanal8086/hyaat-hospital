@@ -25,7 +25,7 @@ const Doctors = ({ selectedSpecialization, setSelectedSpecialization }) => {
   const [doctors, setDoctors] = useState([])
 
   useEffect(() => {
-    fetch('/api/doctors')
+    fetch(`${API_BASE_URL}/api/doctors`)
       .then(res => res.json())
       .then(data => setDoctors(data))
       .catch(err => console.error('Error fetching doctors:', err))

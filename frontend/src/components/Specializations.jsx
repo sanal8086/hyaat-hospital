@@ -36,7 +36,7 @@ const Specializations = ({ setSelectedSpecialization }) => {
   const [specializations, setSpecializations] = useState([])
 
   useEffect(() => {
-    fetch('/api/specializations')
+    fetch(`${API_BASE_URL}/api/specializations`)
       .then(res => res.json())
       .then(data => setSpecializations(data))
       .catch(err => console.error('Error fetching specializations:', err))

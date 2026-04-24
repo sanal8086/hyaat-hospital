@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import API_BASE_URL from './config'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Specializations from './components/Specializations'
@@ -9,10 +10,10 @@ import ChatBot from './components/ChatBot'
 
 function App() {
   const [hospitalInfo, setHospitalInfo] = useState(null)
-  const [selectedSpecialization, setSelectedSpecialization] = useState('General Medicine')
+  const [selectedSpecialization, setSelectedSpecialization] = useState('All')
 
   useEffect(() => {
-    fetch('/api/hospital-info')
+    fetch(`${API_BASE_URL}/api/hospital-info`)
       .then(res => res.json())
       .then(data => setHospitalInfo(data))
       .catch(err => console.error('Error fetching hospital info:', err))
