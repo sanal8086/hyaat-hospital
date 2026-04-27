@@ -115,8 +115,20 @@ const ChatBot = () => {
     const qaMatch = qaData.find(qa => qa.keywords.some(k => text.includes(k)))
     
     if (text === 'hospital info') {
-        responseText = "Blackstone Hyaat Hospital is a 24/7 facility in Kaloor, Kochi. We offer General Medicine, Dental, Pediatrics, and more."
-        options = ['Location', 'Contact Numbers', 'Main Menu']
+        responseText = "Blackstone Hyaat Hospital provides 24/7 healthcare services in Kochi. What specifically would you like to know?"
+        options = ['Location', 'Contact Numbers', 'Sunday Availability', 'Morning Timings', 'Main Menu']
+    }
+    else if (text === 'location') {
+        responseText = "Blackstone Hyaat Hospital is located at Karukapilly, Kaloor, Kochi, Kerala."
+    }
+    else if (text === 'contact numbers') {
+        responseText = "You can reach us at +91 9746 768983 or +91 4843 5689."
+    }
+    else if (text === 'sunday availability') {
+        responseText = "The 24-hour General Physician (Dr. Muhammed Nazeer) and RMO (Dr. Afsal .K) are available on Sundays. Most specialty departments operate Monday to Saturday only."
+    }
+    else if (text === 'morning timings') {
+        responseText = "Most departments open at 10 AM. Dental is available Mon–Sat, 10 AM to 2 PM. General and Family Physician hours are Mon–Sat, 10 AM to 7 PM."
     }
     else if (qaMatch) {
       responseText = qaMatch.answer
