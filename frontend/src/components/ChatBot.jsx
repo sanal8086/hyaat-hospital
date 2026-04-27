@@ -132,7 +132,17 @@ const ChatBot = () => {
         }
         else if (text === 'view all doctors' || text === 'search by department') {
             responseText = "Please select a department from the list below:"
-            options = [...new Set(doctors.map(d => d.department))].filter(Boolean)
+            options = [
+                'General Medicine', 
+                'Dental', 
+                'Pediatrics', 
+                'Orthopedics', 
+                'ENT', 
+                'Diabetology', 
+                'Dermatology', 
+                'Speech Therapy',
+                'Main Menu'
+            ]
         }
         else if (text === 'main menu') {
             responseText = "How can I help you today?"
@@ -140,7 +150,10 @@ const ChatBot = () => {
         }
         else {
             // Check if they typed/clicked a department
-            const matchingDocs = doctors.filter(d => d.department && d.department.toLowerCase() === text)
+            const matchingDocs = doctors.filter(d => 
+                (d.department && d.department.toLowerCase() === text) ||
+                (text === 'general medicine' && (d.department === 'General Medicine' || d.department === 'Family Medicine'))
+            )
             if (matchingDocs.length > 0) {
                 responseText = `Here are our specialists in ${matchingDocs[0].department}:\n\n` + 
                 matchingDocs.map(d => `👨‍⚕️ ${d.name}\n⚕️ ${d.specialization}\n⏰ ${d.timing}`).join('\n\n')
