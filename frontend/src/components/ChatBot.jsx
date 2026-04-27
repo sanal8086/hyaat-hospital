@@ -23,7 +23,6 @@ const ChatBot = () => {
     { keywords: ['contact', 'phone', 'number', 'enquiry'], answer: "You can reach us at +91 9746 768983 or +91 4843 5689." },
     { keywords: ['open', '24 hours', 'everyday', 'night'], answer: "Yes, Blackstone Hyaat Hospital operates 24 hours a day, 7 days a week with round-the-clock emergency services." },
     { keywords: ['enquiry', 'appointment'], answer: "For enquiries and appointments, please call +91 9746 768983 or +91 4843 5689." },
-    { keywords: ['department', 'list'], answer: "The hospital has the following departments: Family Medicine, General Medicine (24 hrs), Dental, Pediatrics, Orthopedics, ENT, Diabetology, Dermatology & Cosmetology, and Speech Therapy." },
     { keywords: ['walk-in'], answer: "Yes, walk-in consultations are available during department hours. For emergency care, the hospital is open 24 hours." },
     { keywords: ['first visit', 'bring'], answer: "Please bring a valid ID, any previous medical records, prescriptions, and insurance documents if applicable." },
     { keywords: ['emergency', 'accident', 'chest pain', 'breathing', 'trauma', 'serious'], answer: "Please call +91 9746 768983 immediately or visit us — we are open 24 hours for all emergency care." },
@@ -68,33 +67,37 @@ const ChatBot = () => {
   }
 
   const processBotResponse = (input) => {
-    const text = input.toLowerCase()
+    const text = input.toLowerCase().trim()
     let responseText = ""
     let options = ['Main Menu']
 
-    // 1. Check for manual flow triggers
-    if (text === 'hospital info') {
+    // 0. Pre-calculate Q&A match for later use
+    const qaMatch = qaData.find(qa => qa.keywords.some(k => text.includes(k)))
+
+    // 1. High Priority: Menu Buttons
+    if (text === 'view all doctors' || text === 'search by department') {
+        responseText = "Please select a department from the list below to view specialists and timings:"
+        options = [
+            'General Medicine', 
+            'Dental', 
+            'Pediatrics', 
+            'Orthopedics', 
+            'ENT', 
+            'Diabetology', 
+            'Dermatology', 
+            'Speech Therapy',
+            'Main Menu'
+        ]
+    }
+    else if (text === 'main menu') {
+        responseText = "How can I help you today?"
+        options = ['View All Doctors', 'Search by Department', 'Hospital Info']
+    }
+    else if (text === 'hospital info') {
         responseText = "Blackstone Hyaat Hospital provides 24/7 healthcare services in Kochi. What specifically would you like to know?"
         options = ['Location', 'Contact Numbers', 'Sunday Availability', 'Morning Timings', 'Main Menu']
     }
-    else if (text === 'location') {
-        responseText = "Blackstone Hyaat Hospital is located at Karukapilly, Kaloor, Kochi, Kerala."
-    }
-    else if (text === 'contact numbers') {
-        responseText = "You can reach us at +91 9746 768983 or +91 4843 5689."
-    }
-    else if (text === 'sunday availability') {
-        responseText = "Note: Most specialty departments are Mon–Sat only. On Sundays, only our 24-hour General Physician and Emergency services are available."
-    }
-    else if (text === 'morning timings') {
-        responseText = "Most departments open at 10 AM. Dental is available Mon–Sat, 10 AM to 2 PM. General and Family Physician hours are Mon–Sat, 10 AM to 7 PM."
-    }
-    // 2. Check for Emergency Keywords (Priority)
-    else if (['emergency', 'accident', 'chest pain', 'breathing'].some(k => text.includes(k))) {
-        responseText = "🚨 **Emergency Detected:** Please call +91 9746 768983 immediately or visit us — we are open 24 hours."
-        options = ['Location', 'Main Menu']
-    }
-    // 3. Check for Department Match (Show Doctors)
+    // 2. Priority: Department to Doctor Lookup
     else if (true) {
         const matchingDocs = doctors.filter(d => 
             (d.department && d.department.toLowerCase() === text) ||
@@ -104,20 +107,18 @@ const ChatBot = () => {
         if (matchingDocs.length > 0) {
             responseText = `Here are our specialists in ${matchingDocs[0].department}:\n\n` + 
             matchingDocs.map(d => `👨‍⚕️ ${d.name}\n⚕️ ${d.specialization}\n⏰ ${d.timing}`).join('\n\n')
-        } 
-        else if (text === 'view all doctors' || text === 'search by department') {
-            responseText = "Please select a department from the list below:"
-            options = ['General Medicine', 'Dental', 'Pediatrics', 'Orthopedics', 'ENT', 'Diabetology', 'Dermatology', 'Speech Therapy', 'Main Menu']
         }
-        else if (text === 'main menu') {
-            responseText = "How can I help you today?"
-            options = ['View All Doctors', 'Search by Department', 'Hospital Info']
+        // 3. Fallback to Emergency
+        else if (['emergency', 'accident', 'chest pain', 'breathing'].some(k => text.includes(k))) {
+            responseText = "🚨 **Emergency Detected:** Please call +91 9746 768983 immediately or visit us — we are open 24 hours."
+            options = ['Location', 'Main Menu']
         }
+        // 4. Fallback to Q&A
         else if (qaMatch) {
             responseText = qaMatch.answer
         }
+        // 5. Final Fallback
         else {
-            // Final Fallback
             responseText = "I'm sorry, I don't have the exact answer for that. For more details, please call us at +91 9746 768983 or +91 4843 5689."
         }
     }
