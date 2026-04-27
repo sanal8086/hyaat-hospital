@@ -40,12 +40,14 @@ const ChatBot = () => {
     // DENTAL DEPARTMENT
     { keywords: ['dental timings', 'dental hours'], answer: "The Dental Department is open Monday to Saturday, 10 AM to 2 PM. Evening slots are available on Monday and Friday at 6:00 PM." },
     { keywords: ['general dentist', 'alfas'], answer: "Dr. Alfas Ali Khan is the General Dentist available at the hospital." },
-    { keywords: ['root canal specialist', 'endodontist', 'sonu'], answer: "Yes, Dr. Sonu Clarence is the Endodontist (root canal specialist) at the hospital." },
+    { keywords: ['endodontist', 'root canal specialist', 'sonu'], answer: "Yes, Dr. Sonu Clarence is the Endodontist (root canal specialist) at the hospital." },
     { keywords: ['oral surgeon', 'jerry'], answer: "Yes, Dr. Jerry Bastin is the Oral Surgeon at Blackstone Hyaat Hospital." },
     { keywords: ['orthodontist', 'sunny', 'aleena'], answer: "The hospital has two orthodontists: Dr. Sunny George and Dr. Aleena Thomas. They are available on Monday and Friday at 6:00 PM." },
-    { keywords: ['child dental', 'paedodontist', 'sreelakshmi'], answer: "Yes, Dr. Sreelakshmi V is the Paedodontist (child dental specialist) available at the hospital." },
+    { keywords: ['pediatric dentist', 'paedodontist', 'sreelakshmi'], answer: "Yes, Dr. Sreelakshmi V is the Paedodontist (child dental specialist) available at the hospital." },
     { keywords: ['braces', 'teeth alignment'], answer: "Yes, our orthodontists Dr. Sunny George and Dr. Aleena Thomas handle braces and teeth alignment. They are available on Monday and Friday at 6:00 PM." },
-    { keywords: ['extraction'], answer: "Yes, Dr. Jerry Bastin (Oral Surgeon) is available for tooth extractions and surgical procedures, Mon–Sat 10 AM to 2 PM." },
+    { keywords: ['root canal treatment'], answer: "Yes, Dr. Sonu Clarence (Endodontist) performs root canal treatments. Available Mon–Sat, 10 AM to 2 PM." },
+    { keywords: ['tooth extraction', 'oral surgery'], answer: "Yes, Dr. Jerry Bastin (Oral Surgeon) is available for tooth extractions and surgical procedures, Mon–Sat 10 AM to 2 PM." },
+    { keywords: ['children dental treatment', 'child dental treatment'], answer: "Yes, our Paedodontist Dr. Sreelakshmi V specializes in children's dental care. Available Mon–Sat, 10 AM to 2 PM." },
 
     // PEDIATRICS
     { keywords: ['pediatric doctor', 'khalil'], answer: "Dr. Mohammed Khalil (MBBS, DCH – Pediatric Internist) handles the Pediatric Department." },
