@@ -79,6 +79,7 @@ const Specializations = ({ setSelectedSpecialization }) => {
 
         {/* Cards */}
         <motion.div
+          key={specializations.length}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

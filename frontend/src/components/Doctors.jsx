@@ -80,7 +80,7 @@ const Doctors = ({ selectedSpecialization, setSelectedSpecialization }) => {
 
         {/* Cards */}
         <motion.div
-          key={selectedSpecialization}
+          key={`${selectedSpecialization}-${doctors.length}`}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
