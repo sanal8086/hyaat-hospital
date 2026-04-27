@@ -84,30 +84,7 @@ const Footer = ({ hospitalInfo }) => {
             </ul>
           </motion.div>
 
-          {/* Emergency */}
-          <motion.div custom={3} variants={colVariants} initial="hidden" whileInView="visible" viewport={{ once: false }}>
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest mb-6">Emergency</h4>
-            <div className="rounded-2xl p-5 bg-gradient-to-br from-red-600/25 to-rose-900/25 border border-red-500/20 backdrop-blur-sm">
-              <motion.div
-                animate={{ scale: [1, 1.15, 1], opacity: [0.8, 1, 0.8] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-red-500 mb-3"
-              >
-                <PhoneCall size={28} />
-              </motion.div>
-              <p className="text-red-400 font-bold text-xs uppercase tracking-widest mb-1">24/7 Helpline</p>
-              <p className="text-white font-extrabold text-xl mb-1">
-                {hospitalInfo?.emergency || '+91 98765 43211'}
-              </p>
-              <p className="text-slate-500 text-xs mb-4">Always available for you</p>
-              <a
-                href={`tel:${hospitalInfo?.emergency || '+919876543211'}`}
-                className="block text-center bg-red-600 hover:bg-red-500 text-white text-sm font-semibold py-2.5 rounded-xl transition-colors duration-300"
-              >
-                Call Now
-              </a>
-            </div>
-          </motion.div>
+          {/* Emergency Card removed as it is redundant with Contact section */}
         </div>
 
         {/* Bottom bar */}
