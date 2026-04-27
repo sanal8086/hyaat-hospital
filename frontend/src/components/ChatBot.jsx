@@ -7,14 +7,12 @@ const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [doctors, setDoctors] = useState([])
   const [inputValue, setInputValue] = useState('')
-  const [bookingStep, setBookingStep] = useState(null) // null, 'name', 'dept', 'date', 'phone'
-  const [bookingData, setBookingData] = useState({})
   const [messages, setMessages] = useState([
     {
       id: 1,
       isBot: true,
       text: "Hello! Welcome to Blackstone Hyaat Hospital 👋\nHow can I help you today?",
-      options: ['Book an Appointment', 'View All Doctors', 'Search by Department', 'Hospital Info']
+      options: ['View All Doctors', 'Search by Department', 'Hospital Info']
     }
   ])
 
@@ -24,7 +22,7 @@ const ChatBot = () => {
     { keywords: ['location', 'where', 'address'], answer: "Blackstone Hyaat Hospital is located at Karukapilly, Kaloor, Kochi, Kerala." },
     { keywords: ['contact', 'phone', 'number', 'enquiry'], answer: "You can reach us at +91 9746 768983 or +91 4843 5689." },
     { keywords: ['open', '24 hours', 'everyday', 'night'], answer: "Yes, Blackstone Hyaat Hospital operates 24 hours a day, 7 days a week with round-the-clock emergency services." },
-    { keywords: ['enquiry', 'book', 'appointment'], answer: "For enquiries and appointments, please call +91 9746 768983 or +91 4843 5689." },
+    { keywords: ['enquiry', 'appointment'], answer: "For enquiries and appointments, please call +91 9746 768983 or +91 4843 5689." },
     { keywords: ['department', 'list'], answer: "The hospital has the following departments: Family Medicine, General Medicine (24 hrs), Dental, Pediatrics, Orthopedics, ENT, Diabetology, Dermatology & Cosmetology, and Speech Therapy." },
     { keywords: ['walk-in'], answer: "Yes, walk-in consultations are available during department hours. For emergency care, the hospital is open 24 hours." },
     { keywords: ['first visit', 'bring'], answer: "Please bring a valid ID, any previous medical records, prescriptions, and insurance documents if applicable." },
@@ -74,36 +72,8 @@ const ChatBot = () => {
     let responseText = ""
     let options = ['Main Menu']
 
-    // 0. Handle Booking Flow State Machine
-    if (bookingStep === 'name') {
-        setBookingData({ ...bookingData, name: input })
-        setBookingStep('dept')
-        responseText = `Thanks ${input}! Which department or symptom are you visiting for? (e.g., Dental, Orthopedics, Fever)`
-        options = ['General Medicine', 'Dental', 'Pediatrics', 'Orthopedics', 'ENT', 'Main Menu']
-    }
-    else if (bookingStep === 'dept') {
-        setBookingData({ ...bookingData, dept: input })
-        setBookingStep('date')
-        responseText = `Got it. What date would you like to visit? (e.g., Tomorrow, Monday)`
-        options = ['Tomorrow', 'Next Week', 'Main Menu']
-    }
-    else if (bookingStep === 'date') {
-        setBookingData({ ...bookingData, date: input })
-        setBookingStep('phone')
-        responseText = `Almost done! Please provide your contact number.`
-    }
-    else if (bookingStep === 'phone') {
-        setBookingStep(null)
-        responseText = `Success! I have noted your request.\n\n📝 **Summary:**\nName: ${bookingData.name}\nDept: ${bookingData.dept}\nDate: ${bookingData.date}\nPhone: ${input}\n\nOur team will call you at +91 9746 768983 to confirm. See you soon!`
-        options = ['Main Menu']
-    }
     // 1. Check for Manual Flow Triggers
-    else if (text === 'book an appointment') {
-        setBookingStep('name')
-        responseText = "I'd be happy to help you book an appointment. First, what is the patient's name?"
-        options = []
-    }
-    else if (text === 'hospital info') {
+    if (text === 'hospital info') {
         responseText = "Blackstone Hyaat Hospital provides 24/7 healthcare services in Kochi. What specifically would you like to know?"
         options = ['Location', 'Contact Numbers', 'Sunday Availability', 'Morning Timings', 'Main Menu']
     }
@@ -146,7 +116,7 @@ const ChatBot = () => {
         }
         else if (text === 'main menu') {
             responseText = "How can I help you today?"
-            options = ['Book an Appointment', 'View All Doctors', 'Search by Department', 'Hospital Info']
+            options = ['View All Doctors', 'Search by Department', 'Hospital Info']
         }
         else {
             // Check if they typed/clicked a department
