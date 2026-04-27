@@ -5,12 +5,12 @@ import { Stethoscope, GraduationCap, Clock, CalendarClock } from 'lucide-react'
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
 }
 
 const cardVariants = {
-  hidden:  { opacity: 0, y: 80, rotateY: 45, scale: 0.9, z: -100 },
-  visible: { opacity: 1, y: 0, rotateY: 0, scale: 1, z: 0, transition: { duration: 0.8, type: 'spring', bounce: 0.4 } },
+  hidden:  { opacity: 0, y: 30, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
 }
 
 const avatarPalettes = [
@@ -84,7 +84,7 @@ const Doctors = ({ selectedSpecialization, setSelectedSpecialization }) => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.05 }}
+          viewport={{ once: true, amount: 0.05 }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"
           style={{ perspective: 1200 }}
         >
