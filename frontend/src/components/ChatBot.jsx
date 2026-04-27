@@ -72,7 +72,7 @@ const ChatBot = () => {
     let responseText = ""
     let options = ['Main Menu']
 
-    // 1. Check for Manual Flow Triggers
+    // 1. Check for manual flow triggers
     if (text === 'hospital info') {
         responseText = "Blackstone Hyaat Hospital provides 24/7 healthcare services in Kochi. What specifically would you like to know?"
         options = ['Location', 'Contact Numbers', 'Sunday Availability', 'Morning Timings', 'Main Menu']
@@ -94,43 +94,31 @@ const ChatBot = () => {
         responseText = "🚨 **Emergency Detected:** Please call +91 9746 768983 immediately or visit us — we are open 24 hours."
         options = ['Location', 'Main Menu']
     }
-    // 3. Check for Q&A matches
-    else {
-        const qaMatch = qaData.find(qa => qa.keywords.some(k => text.includes(k)))
-        if (qaMatch) {
-            responseText = qaMatch.answer
-        }
+    // 3. Check for Department Match (Show Doctors)
+    else if (true) {
+        const matchingDocs = doctors.filter(d => 
+            (d.department && d.department.toLowerCase() === text) ||
+            (text === 'general medicine' && (d.department === 'General Medicine' || d.department === 'Family Medicine'))
+        )
+        
+        if (matchingDocs.length > 0) {
+            responseText = `Here are our specialists in ${matchingDocs[0].department}:\n\n` + 
+            matchingDocs.map(d => `👨‍⚕️ ${d.name}\n⚕️ ${d.specialization}\n⏰ ${d.timing}`).join('\n\n')
+        } 
         else if (text === 'view all doctors' || text === 'search by department') {
             responseText = "Please select a department from the list below:"
-            options = [
-                'General Medicine', 
-                'Dental', 
-                'Pediatrics', 
-                'Orthopedics', 
-                'ENT', 
-                'Diabetology', 
-                'Dermatology', 
-                'Speech Therapy',
-                'Main Menu'
-            ]
+            options = ['General Medicine', 'Dental', 'Pediatrics', 'Orthopedics', 'ENT', 'Diabetology', 'Dermatology', 'Speech Therapy', 'Main Menu']
         }
         else if (text === 'main menu') {
             responseText = "How can I help you today?"
             options = ['View All Doctors', 'Search by Department', 'Hospital Info']
         }
+        else if (qaMatch) {
+            responseText = qaMatch.answer
+        }
         else {
-            // Check if they typed/clicked a department
-            const matchingDocs = doctors.filter(d => 
-                (d.department && d.department.toLowerCase() === text) ||
-                (text === 'general medicine' && (d.department === 'General Medicine' || d.department === 'Family Medicine'))
-            )
-            if (matchingDocs.length > 0) {
-                responseText = `Here are our specialists in ${matchingDocs[0].department}:\n\n` + 
-                matchingDocs.map(d => `👨‍⚕️ ${d.name}\n⚕️ ${d.specialization}\n⏰ ${d.timing}`).join('\n\n')
-            } else {
-                // Final Fallback
-                responseText = "I'm sorry, I don't have the exact answer for that. For more details, please call us at +91 9746 768983 or +91 4843 5689."
-            }
+            // Final Fallback
+            responseText = "I'm sorry, I don't have the exact answer for that. For more details, please call us at +91 9746 768983 or +91 4843 5689."
         }
     }
 
