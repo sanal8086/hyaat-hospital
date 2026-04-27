@@ -60,6 +60,8 @@ const ChatBot = () => {
     // ORTHOPEDIC
     { keywords: ['orthopedic doctor', 'rafeeq'], answer: "Dr. Mohammed Rafeeq (MBBS, D Ortho, MS Ortho) is the Orthopedic Surgeon at the hospital." },
     { keywords: ['orthopedic timings'], answer: "The Orthopedic Department is available on Monday, Wednesday, and Friday from 5:30 PM to 7 PM." },
+    { keywords: ['orthopedic every day'], answer: "Dr. Mohammed Rafeeq is available on Monday, Wednesday, and Friday only, from 5:30 PM to 7 PM." },
+    { keywords: ['bone and joint specialist'], answer: "Yes, Dr. Mohammed Rafeeq is an MS Ortho qualified specialist for bone, joint, and orthopedic concerns." },
     { keywords: ['knee pain', 'back pain'], answer: "Please visit our Orthopedic Department and consult Dr. Mohammed Rafeeq (MS Ortho), available Mon, Wed & Fri, 5:30 PM to 7 PM." },
     { keywords: ['fractures'], answer: "Yes, Dr. Mohammed Rafeeq handles fracture care and orthopedic surgeries. He is available Mon, Wed & Fri, 5:30–7 PM. For emergencies, call us immediately." },
 
