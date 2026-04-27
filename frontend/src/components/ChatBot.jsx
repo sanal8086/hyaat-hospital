@@ -54,6 +54,7 @@ const ChatBot = () => {
     { keywords: ['pediatric timings'], answer: "The Pediatric Department is open Monday to Saturday, 5 PM to 8 PM." },
     { keywords: ['child specialist', 'weekend'], answer: "Dr. Mohammed Khalil is available Monday to Saturday, 5 PM to 8 PM. Sunday appointments are not listed — please call to confirm." },
     { keywords: ['child sick', 'bring child'], answer: "For pediatric concerns, Dr. Mohammed Khalil is available Mon–Sat from 5 PM to 8 PM. For emergencies at any time, our 24-hour team is always available." },
+    { keywords: ['pediatrician qualifications'], answer: "Dr. Mohammed Khalil holds an MBBS and DCH (Diploma in Child Health) and is a Pediatric Internist." },
     { keywords: ['newborn', 'infant'], answer: "Yes, our Pediatric Internist Dr. Mohammed Khalil handles infants, toddlers, and children. Please call +91 9746 768983 for details." },
 
     // ORTHOPEDIC
