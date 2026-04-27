@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 const stats = [
-  { value: '15+', label: 'Years of Care' },
-  { value: '50+', label: 'Specialist Doctors' },
-  { value: '10k+', label: 'Patients Served' },
+  { value: '5+', label: 'Years of Care' },
+  { value: '20+', label: 'Specialist Doctors' },
+  { value: '5k+', label: 'Patients Served' },
   { value: '24/7', label: 'Emergency Ready' },
 ]
 
@@ -81,7 +81,7 @@ const Hero = ({ hospitalInfo }) => {
                   transition={{ duration: 2, repeat: Infinity }}
                   className="w-1.5 h-1.5 rounded-full bg-primary-300 inline-block"
                 />
-                Trusted Healthcare · Since 2005
+                Trusted Healthcare · Since 2021
               </span>
             </motion.div>
 
