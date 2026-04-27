@@ -15,13 +15,13 @@ const iconMap = {
 }
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.1 } },
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
 }
 
 const cardVariants = {
-  hidden:   { opacity: 0, y: 15 },
-  visible:  { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+  hidden:   { opacity: 0, y: 50, rotateX: 15, scale: 0.95 },
+  visible:  { opacity: 1, y: 0, rotateX: 0, scale: 1, transition: { duration: 0.6, type: 'spring', bounce: 0.3 } },
 }
 
 const iconBgs = [
@@ -82,7 +82,7 @@ const Specializations = ({ setSelectedSpecialization }) => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           style={{ perspective: 1200 }}
         >
