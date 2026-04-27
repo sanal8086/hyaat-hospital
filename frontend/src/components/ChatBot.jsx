@@ -75,9 +75,11 @@ const ChatBot = () => {
     { keywords: ['sore throat', 'sinus'], answer: "Yes, our ENT specialists Dr. Asha MS and Dr. Muhammad Shafeeq handle throat, sinus, nose, and ear conditions." },
 
     // DIABETOLOGY
-    { keywords: ['diabetes patient', 'diabetologist', 'shalini'], answer: "Dr. Shobha Shalini (MBBS, Diploma in Diabetology, Fellowship in Diabetes) handles the Diabetology Department." },
-    { keywords: ['diabetes timings'], answer: "Diabetology timings are not separately listed. Please call +91 9746 768983 to confirm Dr. Shobha Shalini's availability." },
-    { keywords: ['blood sugar', 'hb1ac'], answer: "Yes, Dr. Shobha Shalini provides comprehensive diabetes management. Please call us to book an appointment." },
+    { keywords: ['treat diabetes', 'diabetes department'], answer: "Yes, we have a dedicated Diabetology Department." },
+    { keywords: ['diabetologist', 'shalini'], answer: "Dr. Shobha Shalini (MBBS, Diploma in Diabetology, Fellowship in Diabetes) handles the Diabetology Department." },
+    { keywords: ['diabetes doctor qualifications'], answer: "Dr. Shobha Shalini holds an MBBS, a Diploma in Diabetology, and a Fellowship in Diabetes — making her a highly specialized diabetes care physician." },
+    { keywords: ['diabetology timings', 'diabetes timings'], answer: "Diabetology timings are not separately listed. Please call +91 9746 768983 to confirm Dr. Shobha Shalini's availability." },
+    { keywords: ['blood sugar', 'hb1ac', 'hba1c'], answer: "Yes, Dr. Shobha Shalini provides comprehensive diabetes management. Please call us to book an appointment." },
 
     // DERMATOLOGY
     { keywords: ['skin specialist', 'dermatologist', 'balan', 'cosmetology'], answer: "Dr. Indhu Balan (MBBS, MD) is the Dermatologist and Cosmetologist at the hospital." },
