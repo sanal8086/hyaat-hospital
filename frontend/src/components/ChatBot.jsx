@@ -11,10 +11,73 @@ const ChatBot = () => {
     {
       id: 1,
       isBot: true,
-      text: "Hello! Welcome to Hyaat Hospital 👋\nHow can I help you today?",
-      options: ['View All Doctors', 'Search by Department']
+      text: "Hello! Welcome to Blackstone Hyaat Hospital 👋\nHow can I help you today?",
+      options: ['View All Doctors', 'Search by Department', 'Hospital Info']
     }
   ])
+
+  const qaData = [
+    // GENERAL & CONTACT INFORMATION
+    { keywords: ['name', 'hospital'], answer: "The hospital is Blackstone Hyaat Hospital." },
+    { keywords: ['location', 'where', 'address'], answer: "Blackstone Hyaat Hospital is located at Karukapilly, Kaloor, Kochi, Kerala." },
+    { keywords: ['contact', 'phone', 'number'], answer: "You can reach us at +91 9746 768983 or +91 4843 5689." },
+    { keywords: ['open', '24 hours', 'everyday'], answer: "Yes, Blackstone Hyaat Hospital operates 24 hours a day, 7 days a week with round-the-clock emergency services." },
+    { keywords: ['enquiry', 'book', 'appointment'], answer: "For enquiries and appointments, please call +91 9746 768983 or +91 4843 5689." },
+    { keywords: ['department', 'list'], answer: "The hospital has the following departments: Family Medicine, General Medicine (24 hrs), Dental, Pediatrics, Orthopedics, ENT, Diabetology, Dermatology & Cosmetology, and Speech Therapy." },
+    { keywords: ['walk-in'], answer: "Yes, walk-in consultations are available during department hours. For emergency care, the hospital is open 24 hours." },
+    { keywords: ['first visit', 'bring'], answer: "Please bring a valid ID, any previous medical records, prescriptions, and insurance documents if applicable." },
+    { keywords: ['emergency care', 'emergency available'], answer: "Yes, the hospital provides 24-hour emergency care with a Resident Medical Officer (Dr. Afsal .K) and General Physician (Dr. Muhammed Nazeer) available at all times." },
+    { keywords: ['sunday'], answer: "The 24-hour General Physician (Dr. Muhammed Nazeer) and RMO (Dr. Afsal .K) are available on Sundays. Most specialty departments operate Monday to Saturday only." },
+    { keywords: ['morning', 'outpatient', 'timings'], answer: "Most departments open at 10 AM. Dental is available Mon–Sat, 10 AM to 2 PM. General and Family Physician hours are Mon–Sat, 10 AM to 7 PM." },
+
+    // GENERAL MEDICINE & 24-HR SERVICES
+    { keywords: ['family physician', 'ilyas'], answer: "The family physician is Hafis Dr. Muhammad Ilyas, qualified with MBBS and FFM (AFPI)." },
+    { keywords: ['general physician', 'nazeer'], answer: "Dr. Muhammed Nazeer (MBBS) is available as the General Physician on a 24-hour basis." },
+    { keywords: ['rmo', 'resident medical officer', 'afsal'], answer: "Dr. Afsal .K (MBBS) is the Resident Medical Officer (RMO) available round the clock." },
+    { keywords: ['night', 'available at night'], answer: "Yes, the hospital has 24-hour General Physician and RMO cover. Dr. Muhammed Nazeer and Dr. Afsal .K are available at all times including nights." },
+    { keywords: ['fever', 'cold'], answer: "Please visit our General Physician Dr. Muhammed Nazeer or Family Physician Dr. Muhammad Ilyas. They are available 24 hours." },
+
+    // DENTAL DEPARTMENT
+    { keywords: ['dental timings', 'dental hours'], answer: "The Dental Department is open Monday to Saturday, 10 AM to 2 PM. Evening slots are available on Monday and Friday at 6:00 PM." },
+    { keywords: ['general dentist', 'alfas'], answer: "Dr. Alfas Ali Khan is the General Dentist available at the hospital." },
+    { keywords: ['root canal specialist', 'endodontist', 'sonu'], answer: "Yes, Dr. Sonu Clarence is the Endodontist (root canal specialist) at the hospital." },
+    { keywords: ['oral surgeon', 'jerry'], answer: "Yes, Dr. Jerry Bastin is the Oral Surgeon at Blackstone Hyaat Hospital." },
+    { keywords: ['orthodontist', 'sunny', 'aleena'], answer: "The hospital has two orthodontists: Dr. Sunny George and Dr. Aleena Thomas. They are available on Monday and Friday at 6:00 PM." },
+    { keywords: ['child dental', 'paedodontist', 'sreelakshmi'], answer: "Yes, Dr. Sreelakshmi V is the Paedodontist (child dental specialist) available at the hospital." },
+    { keywords: ['braces', 'teeth alignment'], answer: "Yes, our orthodontists Dr. Sunny George and Dr. Aleena Thomas handle braces and teeth alignment. They are available on Monday and Friday at 6:00 PM." },
+    { keywords: ['extraction'], answer: "Yes, Dr. Jerry Bastin (Oral Surgeon) is available for tooth extractions and surgical procedures, Mon–Sat 10 AM to 2 PM." },
+
+    // PEDIATRICS
+    { keywords: ['pediatric doctor', 'khalil'], answer: "Dr. Mohammed Khalil (MBBS, DCH – Pediatric Internist) handles the Pediatric Department." },
+    { keywords: ['pediatric timings'], answer: "The Pediatric Department is open Monday to Saturday, 5 PM to 8 PM." },
+    { keywords: ['child specialist', 'weekend'], answer: "Dr. Mohammed Khalil is available Monday to Saturday, 5 PM to 8 PM. Sunday appointments are not listed — please call to confirm." },
+    { keywords: ['child sick', 'bring child'], answer: "For pediatric concerns, Dr. Mohammed Khalil is available Mon–Sat from 5 PM to 8 PM. For emergencies at any time, our 24-hour team is always available." },
+    { keywords: ['newborn', 'infant'], answer: "Yes, our Pediatric Internist Dr. Mohammed Khalil handles infants, toddlers, and children. Please call +91 9746 768983 for details." },
+
+    // ORTHOPEDIC
+    { keywords: ['orthopedic doctor', 'rafeeq'], answer: "Dr. Mohammed Rafeeq (MBBS, D Ortho, MS Ortho) is the Orthopedic Surgeon at the hospital." },
+    { keywords: ['orthopedic timings'], answer: "The Orthopedic Department is available on Monday, Wednesday, and Friday from 5:30 PM to 7 PM." },
+    { keywords: ['knee pain', 'back pain'], answer: "Please visit our Orthopedic Department and consult Dr. Mohammed Rafeeq (MS Ortho), available Mon, Wed & Fri, 5:30 PM to 7 PM." },
+    { keywords: ['fractures'], answer: "Yes, Dr. Mohammed Rafeeq handles fracture care and orthopedic surgeries. He is available Mon, Wed & Fri, 5:30–7 PM. For emergencies, call us immediately." },
+
+    // ENT
+    { keywords: ['ent doctor', 'shafeeq', 'asha'], answer: "The ENT Department has two doctors: Dr. Muhammad Shafeeq (Thu 5-7 PM) and Dr. Asha MS (Mon-Sat 5-8 PM)." },
+    { keywords: ['ear problem', 'ear consult'], answer: "Please visit our ENT department. Dr. Asha MS (Mon–Sat, 5–8 PM) or Dr. Muhammad Shafeeq (Thursday 5–7 PM) can help you." },
+    { keywords: ['sore throat', 'sinus'], answer: "Yes, our ENT specialists Dr. Asha MS and Dr. Muhammad Shafeeq handle throat, sinus, nose, and ear conditions." },
+
+    // DIABETOLOGY
+    { keywords: ['diabetes patient', 'diabetologist', 'shalini'], answer: "Dr. Shobha Shalini (MBBS, Diploma in Diabetology, Fellowship in Diabetes) handles the Diabetology Department." },
+    { keywords: ['diabetes timings'], answer: "Diabetology timings are not separately listed. Please call +91 9746 768983 to confirm Dr. Shobha Shalini's availability." },
+    { keywords: ['blood sugar', 'hb1ac'], answer: "Yes, Dr. Shobha Shalini provides comprehensive diabetes management. Please call us to book an appointment." },
+
+    // DERMATOLOGY
+    { keywords: ['skin specialist', 'dermatologist', 'balan', 'cosmetology'], answer: "Dr. Indhu Balan (MBBS, MD) is the Dermatologist and Cosmetologist at the hospital." },
+    { keywords: ['skin rash', 'acne'], answer: "Please consult Dr. Indhu Balan (MBBS, MD) in our Dermatology & Cosmetology Department. Call us to book your appointment." },
+
+    // SPEECH THERAPY
+    { keywords: ['speech therapy', 'speech therapist', 'ahana'], answer: "Ahana Abid is the Speech Therapist at the hospital. Available Monday to Saturday, 5 PM to 8 PM." },
+    { keywords: ['speech delay', 'stuttering'], answer: "Yes, our Speech Therapist Ahana Abid handles various speech and language disorders. Available Mon–Sat, 5 PM to 8 PM." }
+  ]
   
   const messagesEndRef = useRef(null)
 
@@ -46,15 +109,25 @@ const ChatBot = () => {
   const processBotResponse = (input) => {
     const text = input.toLowerCase()
     let responseText = ""
-    let options = null
+    let options = ['Main Menu']
 
-    if (text === 'view all doctors') {
-      responseText = "Here are all our departments. Which one are you looking for?"
-      options = [...new Set(doctors.map(d => d.department))].filter(Boolean)
-    } 
-    else if (text === 'search by department') {
+    // 1. Check for Q&A matches
+    const qaMatch = qaData.find(qa => qa.keywords.some(k => text.includes(k)))
+    
+    if (text === 'hospital info') {
+        responseText = "Blackstone Hyaat Hospital is a 24/7 facility in Kaloor, Kochi. We offer General Medicine, Dental, Pediatrics, and more."
+        options = ['Location', 'Contact Numbers', 'Main Menu']
+    }
+    else if (qaMatch) {
+      responseText = qaMatch.answer
+    }
+    else if (text === 'view all doctors' || text === 'search by department') {
       responseText = "Please select a department from the list below:"
       options = [...new Set(doctors.map(d => d.department))].filter(Boolean)
+    }
+    else if (text === 'main menu') {
+      responseText = "How can I help you today?"
+      options = ['View All Doctors', 'Search by Department', 'Hospital Info']
     }
     else {
       // Check if they typed/clicked a department
@@ -62,13 +135,9 @@ const ChatBot = () => {
       if (matchingDocs.length > 0) {
         responseText = `Here are our specialists in ${matchingDocs[0].department}:\n\n` + 
           matchingDocs.map(d => `👨‍⚕️ ${d.name}\n⚕️ ${d.specialization}\n⏰ ${d.timing}`).join('\n\n')
-        options = ['Main Menu']
-      } else if (text === 'main menu') {
-        responseText = "How can I help you today?"
-        options = ['View All Doctors', 'Search by Department']
       } else {
-        responseText = "I'm sorry, I didn't understand that. Please choose an option below."
-        options = ['Main Menu']
+        // Fallback for unknown questions
+        responseText = "I'm sorry, I don't have the exact answer for that. For more details, please call us at +91 9746 768983 or +91 4843 5689."
       }
     }
 
