@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import { Stethoscope, GraduationCap, Clock, CalendarClock } from 'lucide-react'
 
 const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.1 } },
 }
 
 const cardVariants = {
-  hidden:  { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+  hidden:  { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
 }
 
 const avatarPalettes = [
@@ -84,7 +84,7 @@ const Doctors = ({ selectedSpecialization, setSelectedSpecialization }) => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
+          viewport={{ once: true, amount: 0 }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"
           style={{ perspective: 1200 }}
         >
