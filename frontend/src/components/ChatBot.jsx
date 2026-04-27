@@ -89,8 +89,11 @@ const ChatBot = () => {
     { keywords: ['skin rash', 'acne'], answer: "Please consult Dr. Indhu Balan (MBBS, MD) in our Dermatology & Cosmetology Department. Call us to book your appointment." },
 
     // SPEECH THERAPY
-    { keywords: ['speech therapy', 'speech therapist', 'ahana'], answer: "Ahana Abid is the Speech Therapist at the hospital. Available Monday to Saturday, 5 PM to 8 PM." },
-    { keywords: ['speech delay', 'stuttering'], answer: "Yes, our Speech Therapist Ahana Abid handles various speech and language disorders. Available Mon–Sat, 5 PM to 8 PM." }
+    { keywords: ['offer speech therapy', 'have speech therapy'], answer: "Yes, Blackstone Hyaat Hospital has a Speech Therapy service." },
+    { keywords: ['speech therapist', 'ahana'], answer: "Ahana Abid is the Speech Therapist at the hospital." },
+    { keywords: ['speech therapy timings', 'speech therapy hours'], answer: "Speech Therapy is available Monday to Saturday, 5 PM to 8 PM." },
+    { keywords: ['speech delay'], answer: "Yes, our Speech Therapist Ahana Abid is available Mon–Sat, 5 PM to 8 PM. Please call +91 9746 768983 to book an appointment." },
+    { keywords: ['stuttering', 'language disorders'], answer: "Yes, our Speech Therapist Ahana Abid handles various speech and language disorders. Please call to discuss your specific needs." }
   ]
   
   const messagesEndRef = useRef(null)
