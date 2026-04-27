@@ -66,8 +66,12 @@ const ChatBot = () => {
     { keywords: ['fractures'], answer: "Yes, Dr. Mohammed Rafeeq handles fracture care and orthopedic surgeries. He is available Mon, Wed & Fri, 5:30–7 PM. For emergencies, call us immediately." },
 
     // ENT
-    { keywords: ['ent doctor', 'shafeeq', 'asha'], answer: "The ENT Department has two doctors: Dr. Muhammad Shafeeq (Thu 5-7 PM) and Dr. Asha MS (Mon-Sat 5-8 PM)." },
+    { keywords: ['ent department available'], answer: "Yes, Blackstone Hyaat Hospital has a dedicated ENT (Ear, Nose & Throat) Department." },
+    { keywords: ['ent doctors', 'shafeeq', 'asha'], answer: "The ENT Department has two doctors: Dr. Muhammad Shafeeq (MBBS, DLO) and Dr. Asha MS (MBBS, DLS, DNB)." },
+    { keywords: ['shafeeq timings'], answer: "Dr. Muhammad Shafeeq is available on Thursdays from 5 PM to 7 PM." },
+    { keywords: ['asha timings'], answer: "Dr. Asha MS is available Monday to Saturday from 5 PM to 8 PM, and also on Wednesdays from 5 PM to 6:30 PM." },
     { keywords: ['ear problem', 'ear consult'], answer: "Please visit our ENT department. Dr. Asha MS (Mon–Sat, 5–8 PM) or Dr. Muhammad Shafeeq (Thursday 5–7 PM) can help you." },
+    { keywords: ['ent wednesday'], answer: "Yes, there is an ENT slot on Wednesdays from 5 PM to 6:30 PM." },
     { keywords: ['sore throat', 'sinus'], answer: "Yes, our ENT specialists Dr. Asha MS and Dr. Muhammad Shafeeq handle throat, sinus, nose, and ear conditions." },
 
     // DIABETOLOGY
