@@ -82,7 +82,10 @@ const ChatBot = () => {
     { keywords: ['blood sugar', 'hb1ac', 'hba1c'], answer: "Yes, Dr. Shobha Shalini provides comprehensive diabetes management. Please call us to book an appointment." },
 
     // DERMATOLOGY
-    { keywords: ['skin specialist', 'dermatologist', 'balan', 'cosmetology'], answer: "Dr. Indhu Balan (MBBS, MD) is the Dermatologist and Cosmetologist at the hospital." },
+    { keywords: ['skin specialist', 'dermatology department'], answer: "Yes, we have a Dermatology & Cosmetology Department." },
+    { keywords: ['dermatologist', 'balan'], answer: "Dr. Indhu Balan (MBBS, MD) is the Dermatologist and Cosmetologist at the hospital." },
+    { keywords: ['cosmetology', 'skin treatment'], answer: "Yes, Dr. Indhu Balan handles both Dermatology (skin diseases) and Cosmetology (skin care and enhancement) treatments." },
+    { keywords: ['dermatology timings', 'dermatology hours'], answer: "The listed slot is Wednesday, 5 PM to 6:30 PM. Please call +91 9746 768983 to confirm or check for additional slots." },
     { keywords: ['skin rash', 'acne'], answer: "Please consult Dr. Indhu Balan (MBBS, MD) in our Dermatology & Cosmetology Department. Call us to book your appointment." },
 
     // SPEECH THERAPY
